@@ -15,11 +15,47 @@ public class Nodo {
     Nodo si;
     Nodo no;
 
-    public Nodo(String dato,boolean esPregunta) {
+    public Nodo(String dato) {
         this.dato = dato;
-        this.esPregunta = esPregunta;
+        //this.esPregunta = esPregunta;
         this.si = null;
         this.no = null;
     }
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+    }
+
+    public boolean isEsPregunta() {
+        return esPregunta;
+    }
+
+    public void setEsPregunta(boolean esPregunta) {
+        this.esPregunta = esPregunta;
+    }
+
+    public Nodo getSi() {
+        return si;
+    }
+
+    public void setSi(Nodo si) {
+        this.si = si;
+    }
+
+    public Nodo getNo() {
+        return no;
+    }
+
+    public void setNo(Nodo no) {
+        this.no = no;
+    }
     
+    public boolean esHoja()
+{
+    return si == null && no == null;
+}
 }

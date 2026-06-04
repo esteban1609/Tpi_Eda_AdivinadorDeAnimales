@@ -16,6 +16,17 @@ public class Tpi_Eda_AdivinadorDeAnimales {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Arbol arbol = new Arbol();
+
+        arbol.crearArbolInicial();
+
+        System.out.println("\nARBOL CREADO:\n");
+
+        arbol.mostrarArbol();
+        
+        System.out.println(arbol.getRaiz().getDato());
+        System.out.println(arbol.getRaiz().getSi().getDato());
+        System.out.println(arbol.getRaiz().getNo().getDato());
     }
     
 }

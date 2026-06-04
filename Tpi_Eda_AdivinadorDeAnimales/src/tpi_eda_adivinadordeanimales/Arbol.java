@@ -11,18 +11,58 @@ import java.util.Scanner;
  * @author Admin
  */
 public class Arbol {
-    public Nodo raiz;
+    private Nodo raiz;
+    private Scanner sc;
+    
 
     public Arbol() {
         raiz = null;
+        sc= new Scanner(System.in);
     }
+    public Nodo getRaiz() {
+    return raiz;
+}
     
-     public void crearArbolInicial() {
-        raiz = new Nodo("¿Es mamífero?", true);
+    public void crearArbolInicial() {
 
-        raiz.si = new Nodo("Perro", false);
-        raiz.no = new Nodo("Águila", false);
+    if (raiz != null) {
+
+        System.out.println(
+            "El árbol ya fue creado."
+        );
+
+        return;
     }
+
+    System.out.println(
+        "Ingrese pregunta raíz:"
+    );
+
+    String pregunta = sc.nextLine();
+
+    raiz = new Nodo(pregunta);
+
+    System.out.println(
+        "Animal para respuesta SI:"
+    );
+
+    String animalSi = sc.nextLine();
+
+    System.out.println(
+        "Animal para respuesta NO:"
+    );
+
+    String animalNo = sc.nextLine();
+
+    raiz.si = new Nodo(animalSi);
+
+    raiz.no = new Nodo(animalNo);
+
+    System.out.println(
+        "Árbol creado correctamente."
+    );
+}
+     
     
     public void jugar(Scanner sc){
         Nodo actual = raiz;
@@ -50,5 +90,45 @@ public class Arbol {
             //aprender() falta metodo aprender
         }
     }
+    
+    public void mostrarArbol()
+{
+    if(raiz == null)
+    {
+        System.out.println(
+            "Árbol vacío"
+        );
+    }
+    else
+    {
+        mostrarArbolRec(
+            raiz,
+            ""
+        );
+    }
+}
+    
+    private void mostrarArbolRec(
+        Nodo actual,
+        String prefijo)
+{
+    if(actual != null)
+    {
+        System.out.println(
+            prefijo +
+            actual.getDato()
+        );
+
+        mostrarArbolRec(
+            actual.getSi(),
+            prefijo + "   SI -> "
+        );
+
+        mostrarArbolRec(
+            actual.getNo(),
+            prefijo + "   NO -> "
+        );
+    }
+}
     
 }
