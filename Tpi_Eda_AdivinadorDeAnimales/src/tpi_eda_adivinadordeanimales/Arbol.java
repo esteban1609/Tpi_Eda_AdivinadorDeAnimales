@@ -4,6 +4,8 @@
  */
 package tpi_eda_adivinadordeanimales;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Admin
@@ -15,33 +17,38 @@ public class Arbol {
         raiz = null;
     }
     
-    /**
-     * Insertar recursivo
-     * @param dato
-     * @param raiz
-     */
- private Nodo insertarNodo(String dato,Nodo raiz){
-     
-     if(raiz==null){
-         raiz=new Nodo(dato);
-         return raiz;
-     }
-     if(dato.equalsIgnoreCase("si")){
-         raiz.si=insertarNodo(dato,raiz);
-     }else{
-         raiz.no=insertarNodo(dato,raiz);
-     }
-        return raiz;
-     
- }
- 
- 
-     /**
-     * Insertar publico
-     * @param dato
-     */
- public void insertar(String dato){
-     this.raiz=insertarNodo(dato,this.raiz);
- }
- 
+     public void crearArbolInicial() {
+        raiz = new Nodo("¿Es mamífero?", true);
+
+        raiz.si = new Nodo("Perro", false);
+        raiz.no = new Nodo("Águila", false);
+    }
+    
+    public void jugar(Scanner sc){
+        Nodo actual = raiz;
+        
+        while(actual.esPregunta){
+            System.out.println("(s/n)");
+            String resp= sc.nextLine();
+            
+            if(resp.equalsIgnoreCase(("s"))){
+                actual = actual.si;
+                
+            }
+            else{
+                actual = actual.no;
+                        
+            }
+        }
+        System.out.println("¿Tu animal es "+ actual.dato + "? (s/n)");
+        String respuesta = sc.nextLine();
+        
+        if(respuesta.equalsIgnoreCase("s")){
+            System.out.println("¡Adiviné!");
+        }
+        else{
+            //aprender() falta metodo aprender
+        }
+    }
+    
 }

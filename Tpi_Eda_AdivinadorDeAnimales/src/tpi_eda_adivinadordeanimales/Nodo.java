@@ -9,12 +9,15 @@ package tpi_eda_adivinadordeanimales;
  * @author Admin
  */
 public class Nodo {
-    String dato;
+    String dato; //pregunta o animal 
+    boolean esPregunta;
+    
     Nodo si;
     Nodo no;
 
-    public Nodo(String dato) {
+    public Nodo(String dato,boolean esPregunta) {
         this.dato = dato;
+        this.esPregunta = esPregunta;
         this.si = null;
         this.no = null;
     }
