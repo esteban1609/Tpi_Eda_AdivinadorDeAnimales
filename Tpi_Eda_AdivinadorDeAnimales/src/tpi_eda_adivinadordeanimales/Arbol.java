@@ -27,30 +27,22 @@ public class Arbol {
 
     if (raiz != null) {
 
-        System.out.println(
-            "El árbol ya fue creado."
-        );
+        System.out.println("El árbol ya fue creado.");
 
         return;
     }
 
-    System.out.println(
-        "Ingrese pregunta raíz:"
-    );
+    System.out.println("Ingrese pregunta raíz:");
 
     String pregunta = sc.nextLine();
 
     raiz = new Nodo(pregunta);
 
-    System.out.println(
-        "Animal para respuesta SI:"
-    );
+    System.out.println("Animal para respuesta SI:");
 
     String animalSi = sc.nextLine();
 
-    System.out.println(
-        "Animal para respuesta NO:"
-    );
+    System.out.println("Animal para respuesta NO:");
 
     String animalNo = sc.nextLine();
 
@@ -58,9 +50,7 @@ public class Arbol {
 
     raiz.no = new Nodo(animalNo);
 
-    System.out.println(
-        "Árbol creado correctamente."
-    );
+    System.out.println("Árbol creado correctamente.");
 }
      
     
@@ -91,43 +81,24 @@ public class Arbol {
         }
     }
     
-    public void mostrarArbol()
-{
-    if(raiz == null)
-    {
-        System.out.println(
-            "Árbol vacío"
-        );
+    public void mostrarArbol(){
+    if(raiz == null){
+        System.out.println("Árbol vacío");
     }
-    else
-    {
-        mostrarArbolRec(
-            raiz,
-            ""
-        );
+    else{
+        mostrarArbolRec(raiz,"");
     }
 }
     
-    private void mostrarArbolRec(
-        Nodo actual,
-        String prefijo)
-{
-    if(actual != null)
-    {
-        System.out.println(
-            prefijo +
-            actual.getDato()
+    private void mostrarArbolRec(Nodo actual,String prefijo){
+    
+        if(actual != null){
+            System.out.println(prefijo +actual.getDato()
         );
 
-        mostrarArbolRec(
-            actual.getSi(),
-            prefijo + "   SI -> "
-        );
+        mostrarArbolRec(actual.getSi(),prefijo + "   SI -> ");
 
-        mostrarArbolRec(
-            actual.getNo(),
-            prefijo + "   NO -> "
-        );
+        mostrarArbolRec(actual.getNo(),prefijo + "   NO -> ");
     }
 }
     
