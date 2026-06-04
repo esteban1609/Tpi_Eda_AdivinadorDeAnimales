@@ -36,7 +36,7 @@ public class Arbol {
 
     String pregunta = sc.nextLine();
 
-    raiz = new Nodo(pregunta);
+    raiz = new Nodo(pregunta,true);
 
     System.out.println("Animal para respuesta SI:");
 
@@ -46,26 +46,38 @@ public class Arbol {
 
     String animalNo = sc.nextLine();
 
-    raiz.si = new Nodo(animalSi);
+    raiz.si = new Nodo(animalSi,false);
 
-    raiz.no = new Nodo(animalNo);
+    raiz.no = new Nodo(animalNo,false);
 
     System.out.println("Arbol creado correctamente.");
 }
      
     
     public void jugar(){
+        
+         if(raiz == null){
+        System.out.println("Primero debe crear el árbol.");
+        return;
+    }
         Nodo actual = raiz;
+        Nodo padre = null;
+        boolean vinoPorSi = false;
         
         while(actual.esPregunta){
-            System.out.println("(si/no)");
+            System.out.println(actual.dato+" (si/no)");
             String resp= sc.nextLine();
             
+            padre = actual;
+            
             if(resp.equalsIgnoreCase(("si"))){
+                vinoPorSi = true;
                 actual = actual.si;
+                
                 
             }
             else{
+                vinoPorSi = false;
                 actual = actual.no;
                         
             }
@@ -77,8 +89,17 @@ public class Arbol {
             System.out.println("¡Adivine!");
         }
         else{
-            //aprender() falta metodo aprender
-            aprender(actual);
+            Nodo nuevoSubArbol = aprender(actual);
+            
+            if(padre == null){
+                raiz = nuevoSubArbol;
+            }
+            else if(vinoPorSi){
+                padre.si = nuevoSubArbol;
+            }
+            else{
+                padre.no = nuevoSubArbol;
+            }
         }
     }
     
@@ -114,15 +135,15 @@ public class Arbol {
        System.out.println("para el nuevo animal, ¿la respuesta es SI o NO?");
        String respuesta=sc.nextLine();
        
-       Nodo nuevo=new Nodo(pregunta);
+       Nodo nuevo=new Nodo(pregunta,true);
        nuevo.esPregunta=true;
        
        if(respuesta.equalsIgnoreCase("si")){
-           nuevo.si=new Nodo(animalNuevo);
+           nuevo.si=new Nodo(animalNuevo,false);
            nuevo.si.esPregunta=false;
            nuevo.no=animal;
        }else{
-           nuevo.no=new Nodo(animalNuevo);
+           nuevo.no=new Nodo(animalNuevo,false);
            nuevo.no.esPregunta=false;
            nuevo.si=animal;
        }

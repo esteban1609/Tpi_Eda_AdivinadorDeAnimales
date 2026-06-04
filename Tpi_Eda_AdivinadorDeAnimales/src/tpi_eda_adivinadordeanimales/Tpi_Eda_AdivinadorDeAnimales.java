@@ -26,9 +26,10 @@ public class Tpi_Eda_AdivinadorDeAnimales {
         System.out.println("Comienza el juego");
         arbol.jugar();
         
-        System.out.println(arbol.getRaiz().getDato());
-        System.out.println(arbol.getRaiz().getSi().getDato());
-        System.out.println(arbol.getRaiz().getNo().getDato());
+        //System.out.println(arbol.getRaiz().getDato());
+        //System.out.println(arbol.getRaiz().getSi().getDato());
+       // System.out.println(arbol.getRaiz().getNo().getDato());
+        
     }
     
 }

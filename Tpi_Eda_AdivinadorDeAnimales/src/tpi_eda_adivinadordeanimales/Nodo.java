@@ -15,9 +15,9 @@ public class Nodo {
     Nodo si;
     Nodo no;
 
-    public Nodo(String dato) {
+    public Nodo(String dato,boolean esPregunta) {
         this.dato = dato;
-        //this.esPregunta = esPregunta;
+        this.esPregunta = esPregunta;
         this.si = null;
         this.no = null;
     }
