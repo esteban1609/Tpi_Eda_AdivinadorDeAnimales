@@ -27,12 +27,12 @@ public class Arbol {
 
     if (raiz != null) {
 
-        System.out.println("El árbol ya fue creado.");
+        System.out.println("El arbol ya fue creado.");
 
         return;
     }
 
-    System.out.println("Ingrese pregunta raíz:");
+    System.out.println("Ingrese pregunta raiz:");
 
     String pregunta = sc.nextLine();
 
@@ -50,18 +50,18 @@ public class Arbol {
 
     raiz.no = new Nodo(animalNo);
 
-    System.out.println("Árbol creado correctamente.");
+    System.out.println("Arbol creado correctamente.");
 }
      
     
-    public void jugar(Scanner sc){
+    public void jugar(){
         Nodo actual = raiz;
         
         while(actual.esPregunta){
-            System.out.println("(s/n)");
+            System.out.println("(si/no)");
             String resp= sc.nextLine();
             
-            if(resp.equalsIgnoreCase(("s"))){
+            if(resp.equalsIgnoreCase(("si"))){
                 actual = actual.si;
                 
             }
@@ -70,20 +70,21 @@ public class Arbol {
                         
             }
         }
-        System.out.println("¿Tu animal es "+ actual.dato + "? (s/n)");
+        System.out.println("¿Tu animal es "+ actual.dato + "? (si/no)");
         String respuesta = sc.nextLine();
         
-        if(respuesta.equalsIgnoreCase("s")){
-            System.out.println("¡Adiviné!");
+        if(respuesta.equalsIgnoreCase("si")){
+            System.out.println("¡Adivine!");
         }
         else{
             //aprender() falta metodo aprender
+            aprender(actual);
         }
     }
     
     public void mostrarArbol(){
     if(raiz == null){
-        System.out.println("Árbol vacío");
+        System.out.println("Arbol vacío");
     }
     else{
         mostrarArbolRec(raiz,"");
@@ -103,6 +104,7 @@ public class Arbol {
 }
     
    private Nodo aprenderRec(Nodo animal){
+       
        System.out.println("¿que animal era? ");
        String animalNuevo=sc.nextLine();
        
@@ -113,12 +115,15 @@ public class Arbol {
        String respuesta=sc.nextLine();
        
        Nodo nuevo=new Nodo(pregunta);
+       nuevo.esPregunta=true;
        
        if(respuesta.equalsIgnoreCase("si")){
            nuevo.si=new Nodo(animalNuevo);
+           nuevo.si.esPregunta=false;
            nuevo.no=animal;
        }else{
            nuevo.no=new Nodo(animalNuevo);
+           nuevo.no.esPregunta=false;
            nuevo.si=animal;
        }
        nuevo.esPregunta=true;
@@ -129,8 +134,8 @@ public class Arbol {
    }
    
    
-   public void aprender(){
-       
+   public Nodo aprender(Nodo animal){
+       return aprenderRec(animal);
    }
     
 }
