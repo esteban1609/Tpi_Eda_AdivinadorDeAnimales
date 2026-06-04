@@ -102,4 +102,35 @@ public class Arbol {
     }
 }
     
+   private Nodo aprenderRec(Nodo animal){
+       System.out.println("¿que animal era? ");
+       String animalNuevo=sc.nextLine();
+       
+       System.out.println("ingrese una pregunta que diferencia al nuevo animal del anterior");
+       String pregunta=sc.nextLine();
+       
+       System.out.println("para el nuevo animal, ¿la respuesta es SI o NO?");
+       String respuesta=sc.nextLine();
+       
+       Nodo nuevo=new Nodo(pregunta);
+       
+       if(respuesta.equalsIgnoreCase("si")){
+           nuevo.si=new Nodo(animalNuevo);
+           nuevo.no=animal;
+       }else{
+           nuevo.no=new Nodo(animalNuevo);
+           nuevo.si=animal;
+       }
+       nuevo.esPregunta=true;
+       
+        return nuevo;
+
+       
+   }
+   
+   
+   public void aprender(){
+       
+   }
+    
 }
