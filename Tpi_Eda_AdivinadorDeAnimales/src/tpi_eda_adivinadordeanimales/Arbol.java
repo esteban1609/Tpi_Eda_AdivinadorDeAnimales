@@ -28,16 +28,37 @@ public class Arbol {
 
     public void crearArbolInicial() {
 
-    raiz = crearPregunta(Preguntas.preguntaRaiz);
+    raiz = crearPregunta("Es mamifero?");
 
-    raiz.si = crearPregunta(Preguntas.preguntaAgua);
-    raiz.no = crearPregunta(Preguntas.preguntaDomestico);
+    // Si
+    raiz.si = crearPregunta("Vive en el agua?");
 
-    raiz.si.si = crearAnimal("Pato");
-    raiz.si.no = crearAnimal("Aguila");
+    raiz.si.si = crearPregunta("Es muy grande?");
 
-    raiz.no.si = crearAnimal("Perro");
-    raiz.no.no = crearAnimal("Serpiente");
+    raiz.si.si.si = crearAnimal("Ballena");
+    raiz.si.si.no = crearAnimal("Delfin");
+
+    raiz.si.no = crearPregunta("Es domestico?");
+
+    raiz.si.no.si = crearAnimal("Perro");
+    raiz.si.no.no = crearAnimal("Leon");
+
+    // No
+    raiz.no = crearPregunta("Tiene alas?");
+
+    raiz.no.si = crearPregunta("Puede volar largas distancias?");
+
+    raiz.no.si.si = crearAnimal("Aguila");
+    raiz.no.si.no = crearAnimal("Gallina");
+
+    raiz.no.no = crearPregunta("Vive en el agua?");
+
+    raiz.no.no.si = crearAnimal("Pez");
+
+    raiz.no.no.no = crearPregunta("Tiene patas?");
+
+    raiz.no.no.no.si = crearAnimal("Tortuga");
+    raiz.no.no.no.no = crearAnimal("Serpiente");
 
     }
 

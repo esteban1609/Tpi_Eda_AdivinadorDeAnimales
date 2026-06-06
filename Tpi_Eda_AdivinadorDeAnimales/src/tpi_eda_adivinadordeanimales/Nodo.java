@@ -54,8 +54,4 @@ public class Nodo {
         this.no = no;
     }
     
-    public boolean esHoja()
-{
-    return si == null && no == null;
-}
 }

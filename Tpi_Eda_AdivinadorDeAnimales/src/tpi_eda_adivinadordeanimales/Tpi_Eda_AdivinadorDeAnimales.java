@@ -17,20 +17,7 @@ public class Tpi_Eda_AdivinadorDeAnimales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        //Arbol arbol = new Arbol();
-
-        //arbol.crearArbolInicial();
-
-        //System.out.println("\nARBOL CREADO:\n");
-        //arbol.mostrarArbol();
         
-        //System.out.println("Comienza el juego");
-        //arbol.jugar();
-        
-        //System.out.println(arbol.getRaiz().getDato());
-        //System.out.println(arbol.getRaiz().getSi().getDato());
-       // System.out.println(arbol.getRaiz().getNo().getDato());
         Scanner sc = new Scanner(System.in);
 
         Arbol arbol = new Arbol();
@@ -40,10 +27,9 @@ public class Tpi_Eda_AdivinadorDeAnimales {
         do {
 
             System.out.println("\n=== ADIVINADOR DE ANIMALES ===");
-            System.out.println("1 - Crear arbol inicial");
-            System.out.println("2 - Mostrar arbol");
-            System.out.println("3 - Jugar");
-            System.out.println("4 - Salir");
+            System.out.println("1 - Mostrar arbol");
+            System.out.println("2 - Jugar");
+            System.out.println("3 - Salir");
             System.out.print("Opcion: ");
 
             opcion = sc.nextInt();
@@ -53,22 +39,16 @@ public class Tpi_Eda_AdivinadorDeAnimales {
 
                 case 1:
                     
-                    arbol.crearArbolInicial();
-
-                    break;
-
-                case 2:
-                    
                     arbol.mostrarArbol();
 
                     break;
 
-                case 3:
+                case 2:
                     arbol.jugar();
 
                     break;
 
-                case 4:
+                case 3:
                     System.out.println("Fin del programa.");
 
                     break;
@@ -77,7 +57,7 @@ public class Tpi_Eda_AdivinadorDeAnimales {
                     System.out.println("Opcion invalida.");
             }
 
-        } while(opcion != 4);
+        } while(opcion != 3);
     }
     
 }
