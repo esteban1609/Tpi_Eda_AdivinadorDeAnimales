@@ -6,6 +6,7 @@
 package tpi_eda_adivinadordeanimales;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,38 +27,58 @@ public class Tpi_Eda_AdivinadorDeAnimales {
 
         do {
 
-            System.out.println("\n=== ADIVINADOR DE ANIMALES ===");
-            System.out.println("1 - Mostrar arbol");
-            System.out.println("2 - Jugar");
-            System.out.println("3 - Salir");
-            System.out.print("Opcion: ");
+        String menu =
+        "===== ADIVINADOR DE ANIMALES =====\n\n"
+      + "1 - Mostrar árbol\n"
+      + "2 - Jugar\n"
+      + "3 - Salir\n\n"
+      + "Seleccione una opción:";
 
-            opcion = sc.nextInt();
-            sc.nextLine();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog(menu));
 
-            switch(opcion) {
+        switch (opcion) {
 
-                case 1:
-                    
-                    arbol.mostrarArbol();
+            case 1:
 
-                    break;
+                System.out.println("\nÁRBOL ACTUAL\n");
+                arbol.mostrarArbol();
 
-                case 2:
-                    arbol.jugar();
+                JOptionPane.showMessageDialog(
+                        null,
+                        "El árbol se mostró en la consola."
+                );
 
-                    break;
+                break;
 
-                case 3:
-                    System.out.println("Fin del programa.");
+            case 2:
 
-                    break;
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Piense un animal y responda las preguntas en la consola."
+                );
 
-                default:
-                    System.out.println("Opcion invalida.");
-            }
+                arbol.jugar();
 
-        } while(opcion != 3);
+                break;
+
+            case 3:
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Gracias por jugar."
+                );
+
+                break;
+
+            default:
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Opción inválida."
+                );
+        }
+
+    } while (opcion != 3);
     }
     
 }

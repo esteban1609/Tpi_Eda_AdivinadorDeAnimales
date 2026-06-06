@@ -5,6 +5,7 @@
 package tpi_eda_adivinadordeanimales;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,8 +74,9 @@ public class Arbol {
         boolean vinoPorSi = false;
 
         while (actual.esPregunta) {
-            System.out.println(actual.dato + " (si/no)");
-            String resp = sc.nextLine();
+            /*System.out.println(actual.dato + " (si/no)");
+            String resp = sc.nextLine();*/
+            String resp = JOptionPane.showInputDialog(actual.dato + "\n(si/no)");
 
             padre = actual;
 
@@ -88,12 +90,15 @@ public class Arbol {
 
             }
         }
-        System.out.println("Tu animal es " + actual.dato + "? (si/no)");
-        String respuesta = sc.nextLine();
+        /*System.out.println("Tu animal es " + actual.dato + "? (si/no)");
+        String respuesta = sc.nextLine();*/
+        String respuesta =JOptionPane.showInputDialog("¿Tu animal es "+ actual.dato+ "?\n(si/no)");
 
         if (respuesta.equalsIgnoreCase("si")) {
-            System.out.println("¡Adivine!");
+            //System.out.println("¡Adivine!");
+            JOptionPane.showMessageDialog(null,"¡Adiviné tu animal!");
         } else {
+            JOptionPane.showMessageDialog(null,"No pude adivinarlo. Voy a aprender.");
             Nodo nuevoSubArbol = aprender(actual);
 
             if (padre == null) {
@@ -130,14 +135,17 @@ public class Arbol {
 
     private Nodo aprenderRec(Nodo animal) {
 
-        System.out.println("que animal era? ");
-        String animalNuevo = sc.nextLine();
+        /*.out.println("que animal era? ");
+        String animalNuevo = sc.nextLine();*/
+        String animalNuevo =JOptionPane.showInputDialog("¿Qué animal era?");
 
-        System.out.println("ingrese una pregunta que diferencia al nuevo animal del anterior");
-        String pregunta = sc.nextLine();
+        /*System.out.println("ingrese una pregunta que diferencia al nuevo animal del anterior");
+        String pregunta = sc.nextLine();*/
+        String pregunta =JOptionPane.showInputDialog("Ingrese una pregunta que diferencie a "+ animalNuevo +" de "+ animal.getDato());
 
-        System.out.println("para el nuevo animal, ¿la respuesta es SI o NO?");
-        String respuesta = sc.nextLine();
+        /*System.out.println("para el nuevo animal, ¿la respuesta es SI o NO?");
+        String respuesta = sc.nextLine();*/
+        String respuesta =JOptionPane.showInputDialog("Para "+ animalNuevo +" la respuesta es SI o NO?");
 
         Nodo nuevo = new Nodo(pregunta, true);
         nuevo.esPregunta = true;
@@ -152,7 +160,7 @@ public class Arbol {
             nuevo.si = animal;
         }
         nuevo.esPregunta = true;
-
+        JOptionPane.showMessageDialog(null,"Gracias. Aprendí un nuevo animal.");
         return nuevo;
 
     }
