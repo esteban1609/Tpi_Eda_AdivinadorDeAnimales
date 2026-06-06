@@ -40,34 +40,41 @@ public class Tpi_Eda_AdivinadorDeAnimales {
         do {
 
             System.out.println("\n=== ADIVINADOR DE ANIMALES ===");
-            System.out.println("1 - Crear árbol inicial");
-            System.out.println("2 - Mostrar árbol");
+            System.out.println("1 - Crear arbol inicial");
+            System.out.println("2 - Mostrar arbol");
             System.out.println("3 - Jugar");
             System.out.println("4 - Salir");
-            System.out.print("Opción: ");
+            System.out.print("Opcion: ");
 
             opcion = sc.nextInt();
             sc.nextLine();
 
             switch(opcion) {
 
-                case 1:arbol.crearArbolInicial();
+                case 1:
+                    
+                    arbol.crearArbolInicial();
 
                     break;
 
-                case 2:arbol.mostrarArbol();
+                case 2:
+                    
+                    arbol.mostrarArbol();
 
                     break;
 
-                case 3:arbol.jugar();
+                case 3:
+                    arbol.jugar();
 
                     break;
 
-                case 4:System.out.println("Fin del programa.");
+                case 4:
+                    System.out.println("Fin del programa.");
 
                     break;
 
-                default:System.out.println("Opción inválida.");
+                default:
+                    System.out.println("Opcion invalida.");
             }
 
         } while(opcion != 4);
